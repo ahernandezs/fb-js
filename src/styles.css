@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    background: #f2f6fc;
+    height: 100%;
+    width: 100%;
+    color: #29487d;
+}
+
+.btn{
+    width: 12.6em;
+    margin: 1em 0;
+    padding: .5em;
+    cursor: pointer;
+    font-size: 1em;
+    color: whitesmoke;
+    background: #29487d;
+    border: 1px solid white
+}
+
+.btn:hover, .btn:active, .btn:focus{
+    color: white;
+    background: #29487d;
+}
+
+.container-fluid{
+    width: 100%;
+}
+
+.error{
+    font-size: .8em;
+    color: red;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: lightgray;
+  font-weight: normal;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: lightgray;
+  font-weight: normal;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: lightgray;
+  font-weight: normal;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: lightgray;
+  font-weight: normal;
+}

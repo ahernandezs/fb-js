@@ -1,3 +1,35 @@
-<p>
-  login works!
-</p>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12 header">
+                <h1>Fakebook</h1>
+        </div>
+    </div>
+    <div class="row" style="margin-top:40px;">
+        <div class="col-md-5">
+            <img src="../assets/imagen.png" alt=":)">
+        </div>
+        <div class="col-md-3 col-md-offset-3">
+            <div class="card">
+                <div class="row">
+                    <div>
+                        <h2>Bienvenido</h2>
+                        <label>
+                            <input type="text" placeholder="Email" [(ngModel)]="email"/>
+                        </label>
+                        <label>
+                            <input type="password" placeholder="Password" [(ngModel)]="password"/>
+                        </label>
+                        <br><span class="error">error</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <button routerLinkActive="active" class="btn" (click)="login();">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
