@@ -1,0 +1,13 @@
+textarea {
+    resize: none;
+    width:100%;
+}
+
+.card{
+	padding: 0.7em;
+    text-align: right;
+}
+
+.post{
+    text-align: left;
+}

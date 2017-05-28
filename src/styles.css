@@ -5,6 +5,21 @@ body{
     color: #29487d;
 }
 
+.card{
+    border: solid 1px #29487d;
+    background-color: white;
+    text-align: center;
+}
+
+.header{
+    background-color: #29487d;
+    color: #FFFFFF;
+}
+
+.space-top{
+    margin-top:20px;
+}
+
 .btn{
     width: 12.6em;
     margin: 1em 0;

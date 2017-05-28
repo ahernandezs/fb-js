@@ -1,15 +1,7 @@
-.card{
-    padding: 2em;
-    border: solid 1px #29487d;
-    background-color: white;
-    text-align: center;
-}
-
-.header{
-    background-color: #29487d;
-    color: #FFFFFF;
-}
-
 label{
 	margin: .5em;
+}
+
+.card{
+	padding: 2em;
 }
