@@ -5,9 +5,23 @@ textarea {
 
 .card{
 	padding: 0.7em;
-    text-align: right;
 }
 
 .post{
     text-align: left;
+}
+
+.edit{
+    text-align: right;
+}
+
+.post textarea{
+    border: none;
+    color: black;
+}
+
+.link{
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
 }

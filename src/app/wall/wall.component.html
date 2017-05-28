@@ -2,36 +2,34 @@
 
     <div class="row">
         <div class="col-md-12 header">
-                <h1>Fakebook</h1>
+            <h1>Fakebook</h1>
         </div>
     </div>
     <div class="row space-top">
       <div class="col-md-6 col-md-offset-2">
-        <div class="card">
-            <textarea rows="4" cols="75" placeholder="¿Qué está pasando?"></textarea>
-            <input type="file" id="fileElem" accept="image/*">
-            <select name="amigos" id="" class="btn-default" style>
-                <option value="Amigos">Amigos</option>
-                <option value="Todos">Publico</option>
-            </select>
-            <button class="btn-default">Publicar</button>
+        <span class="link" (click)="filtro = 'amigos'">Amigos</span>
+        <span class="link" (click)="filtro = 'publico'">Público</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-2">
+        <div *ngFor="let post of posts">
+          <div *ngIf="(post.visible === 'publico' && filtro === 'publico') || filtro==='amigos' || post.id === 0" class="card space-top" [ngClass]="{'edit': post.state==='edit', 'post': post.state==='post' }">
+            <textarea *ngIf="post.state==='edit'" rows="4" cols="75" [(ngModel)] ="post.value" placeholder="¿Qué está pasando?"></textarea>
+            <textarea *ngIf="post.state==='post'" rows="4" cols="75" disabled>{{post.value}}</textarea>
+            <span *ngIf="post.state==='edit'">
+              <select name="visibilidad" class="btn-default" [(ngModel)] ="post.visible">
+                  <option value="amigos">Amigos</option>
+                  <option value="publico">Público</option>
+              </select>
+              <button class="btn-default" (click)="publicar(post.value, post.visible, post.id)"><span *ngIf="post.id === 0">Publicar</span><span *ngIf="post.id !== 0">Guardar</span></button>
+            </span>
+            <span *ngIf="post.state==='post'">
+              <span (click)="post.state = 'edit'" class="link">Editar</span>
+              <span (click)="borrar(post.id)" class="link">Eliminar</span>
+            </span>
+          </div>
         </div>
       </div>
     </div>
-    <div class="row space-top">
-      <div class="col-md-6 col-md-offset-2">
-         Amigos Publico
-      </div>
-    </div>
-    <div class="row space-top">
-      <div class="col-md-6 col-md-offset-2">
-        <div class="card post">
-          <p>
-          Hoy el Laucha tierniza un Matambre de Res en nuestro Horno Tromen y lo termina en la parrilla con unos agregados DELUXE por encima. ¡Una combinación explosiva de sabores!
-          </p>
-          editar eliminar
-        </div>
-      </div>  
-    </div>
-
 </div>
