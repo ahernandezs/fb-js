@@ -43,6 +43,7 @@ body{
 .error{
     font-size: .8em;
     color: red;
+    font-weight: normal;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

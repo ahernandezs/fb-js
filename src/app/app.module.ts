@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app.routing'
 import { LoginComponent } from './login/login.component';
 import { WallComponent } from './wall/wall.component';
 
+import { FBService } from './services/fb.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,7 @@ import { WallComponent } from './wall/wall.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [FBService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

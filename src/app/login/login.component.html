@@ -16,11 +16,12 @@
                         <h2>Bienvenido</h2>
                         <label>
                             <input type="text" placeholder="Email" [(ngModel)]="email"/>
+                            <br><span class="error">{{errorMail}}</span>
                         </label>
                         <label>
                             <input type="password" placeholder="Password" [(ngModel)]="password"/>
+                            <br><span class="error">{{errorPass}}</span>
                         </label>
-                        <br><span class="error">error</span>
                     </div>
                 </div>
                 <div class="row">
