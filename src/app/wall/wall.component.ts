@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Posts } from '../../assets/post'
 
 @Component({
@@ -9,20 +10,23 @@ import { Posts } from '../../assets/post'
 export class WallComponent implements OnInit {
 
   posts: Array<Posts>;
-  filtro = 'amigos';
+  filtro: string = 'amigos';
   
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
-    this.posts = new Array<Posts>();
-    this.posts.unshift({id: 0, visible: 'amigos', value: '', state: 'edit'});
+    this.posts = JSON.parse(localStorage.getItem(localStorage.getItem('fb_auth')));
+    if(typeof this.posts === 'undefined' || this.posts === null){
+      this.posts = new Array<Posts>();
+      this.posts.unshift({id: 0, visible: 'amigos', value: '', state: 'edit'});
+    }
  }
 
   publicar(comentario, visibilidad, id){
     if(typeof comentario === 'undefined' || comentario === '' ){
+      // TODO use modal window
       window.alert('Escribe algo');
     }else{
-      this.filtro = 'amigos';
       if(id === 0){
         this.posts.shift();
         this.posts.unshift({id: Math.floor((Math.random() * 1000) + 1), visible: visibilidad, value: comentario, state: 'post'});
@@ -37,6 +41,8 @@ export class WallComponent implements OnInit {
           }
         }
       }
+      this.filtro = 'amigos';
+      localStorage.setItem(localStorage.getItem('fb_auth'), JSON.stringify(this.posts));
     }
   }
 
@@ -46,10 +52,16 @@ export class WallComponent implements OnInit {
       for(let i=0; i<this.posts.length; i++){
         if(this.posts[i].id === id){
           this.posts.splice(i,1);
+            localStorage.setItem(localStorage.getItem('fb_auth'), JSON.stringify(this.posts));
           break;
         }
       }
     }
+  }
+
+  salir(){
+    localStorage.removeItem('fb_auth');
+    this.router.navigate(['/login']);
   }
 
 }

@@ -5,5 +5,9 @@ import { Component } from '@angular/core';
   template: `<router-outlet></router-outlet>`
 })
 export class AppComponent {
-
+  constructor(){
+    window.onbeforeunload = function(e) {
+      localStorage.removeItem('fb_auth');
+    };
+  }
 }

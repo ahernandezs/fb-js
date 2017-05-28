@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
               this.usuarios = res;
               for(let i = 0; i < this.usuarios.length; i++){
                 if( this.usuarios[i].user === this.email && this.usuarios[i].pass === this.password ){
+                  localStorage.setItem('fb_auth', this.email);
                   this.router.navigate(['/wall']);
                 }
               }
